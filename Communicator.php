@@ -71,7 +71,7 @@ class Communicator extends Component
     public function sendMessages(string $message, array $phones, ?string $naming = null): MtsResponse
     {
         $params['message'] = $message;
-        $params['MSIDs'] = array_map([$this, 'preparePhone'], $phones);
+        $params['msids'] = array_map([$this, 'preparePhone'], $phones);
         if ($naming = $this->prepareNaming($naming)) {
             $params['naming'] = $naming;
         }
