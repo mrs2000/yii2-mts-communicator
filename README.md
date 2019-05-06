@@ -28,12 +28,24 @@ Usage
 Configuration:
 
 ```php
+// API MTS Communicator version 1.45
 'components' => [
     ...
     'mts' => [
         'class' => 'mrssoft\mts\Communicator',
         'login' => '',
         'password' => '',
+        'naming' => 'BRAND'
+    ]
+    ....
+]
+
+// API MTS Communicator version 2.1
+'components' => [
+    ...
+    'mts' => [
+        'class' => 'mrssoft\mts\Communicator',
+        'token' => '',
         'naming' => 'BRAND'
     ]
     ....
