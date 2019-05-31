@@ -101,6 +101,8 @@ class Communicator extends Component
 
     private function preparePhone(string $phone): string
     {
+        $phone = preg_replace('/\D/', '', $phone);
+
         if (mb_strlen($phone) === 10) {
             return '7' . $phone;
         }
