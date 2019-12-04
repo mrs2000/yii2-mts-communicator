@@ -1,6 +1,6 @@
 {
     "name": "mrssoft/yii2-mts-communicator",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Extension for sending SMS through MTS Communicator M2M API",
     "type": "yii2-extension",
     "keywords": ["yii2","extension", "sms", "mts"],
@@ -12,6 +12,7 @@
         }
     ],
     "require": {
+        "php": ">=7.1",
         "yiisoft/yii2": "*"
     },
     "autoload": {
