@@ -8,20 +8,10 @@ use yii\base\Component;
 
 /**
  * Extension for sending SMS through MTS Communicator M2M API
- * @version 1.1.0
+ * @version 2.0.0
  */
 class Communicator extends Component
 {
-    /**
-     * @var string
-     */
-    public $login;
-
-    /**
-     * @var string
-     */
-    public $password;
-
     /**
      * @var string
      */
@@ -46,16 +36,14 @@ class Communicator extends Component
     {
         parent::init();
 
-        $soapOptions = ['soap_version' => SOAP_1_2];
-        if ($this->token) {
-            $soapOptions['stream_context'] = stream_context_create([
+        $this->client = new SoapClient($this->wsdlUrl, [
+            'soap_version' => SOAP_1_2,
+            'stream_context' => stream_context_create([
                 'http' => [
                     'header' => 'Authorization: Bearer ' . $this->token
                 ]
-            ]);
-        }
-
-        $this->client = new SoapClient($this->wsdlUrl, $soapOptions);
+            ])
+        ]);
     }
 
     /**
@@ -114,11 +102,6 @@ class Communicator extends Component
 
     private function request(string $function, array $params): MtsResponse
     {
-        if ($this->login && $this->password) {
-            $params['login'] = $this->login;
-            $params['password'] = md5($this->password);
-        }
-
         $response = new MtsResponse();
 
         try {

@@ -3,6 +3,9 @@ yii2-mts-communicator
 
 Extension for sending SMS through MTS Communicator M2M API
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/mrssoft/yii2-mts-communicator.svg)](https://packagist.org/packages/mrssoft/rbs)
+![Total Downloads](https://img.shields.io/packagist/dt/mrssoft/yii2-mts-communicator.svg)
+
 Installation
 ------------
 
@@ -28,18 +31,6 @@ Usage
 Configuration:
 
 ```php
-// API MTS Communicator version 1.45
-'components' => [
-    ...
-    'mts' => [
-        'class' => 'mrssoft\mts\Communicator',
-        'login' => '',
-        'password' => '',
-        'naming' => 'BRAND'
-    ]
-    ....
-]
-
 // API MTS Communicator version 2.1
 'components' => [
     ...
